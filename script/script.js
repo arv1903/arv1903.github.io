@@ -1,4 +1,3 @@
-// add class navbarDark on navbar scroll
 const header = document.querySelector('.navbar');
 console.log(header)
 window.onscroll = function() {
@@ -10,7 +9,6 @@ window.onscroll = function() {
         header.classList.remove('navbarDark');
     }
 }
-// collapse navbar after click on small devices
 const navLinks = document.querySelectorAll('.nav-item')
 const menuToggle = document.getElementById('navbarSupportedContent')
 
