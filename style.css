@@ -29,7 +29,7 @@
 }
 
 .imageAboutPage {
-    width: 100%;
+    width: 15vw;
 }
 
 .servicesText.card {
@@ -55,7 +55,7 @@
     font-size: 36px;
     cursor: pointer;
 }
-.fa-facebook:hover,.fa-instagram:hover,.fa-twitter:hover,.fa-linkedin:hover, .fa-twitch:hover {
+.fa-instagram:hover,.fa-twitter:hover {
     color: #008000;
 }
 .fab {
