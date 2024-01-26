@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokemon Gallery</title>
+        <style>
+               * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                        user-select: none;
+                }
+
+                .container {
+                        min-height: 100vh;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: palegoldenrod;
+                        background: linear-gradient(45deg, palegoldenrod, lightyellow,lightblue);
+                }
+
+                .content {
+                        width: 1200px;
+                        min-height: 80vh;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        margin: auto;
+                        justify-content: space;
+                        background-color: rgb(250, 255, 255);
+                        border-radius: 50px;
+                        box-shadow: 0px 8px 10px rgb(46, 46, 40);
+                        transition: transform 0.5s ease-in-out;
+                }
+
+                span#left, span#right {
+                        cursor: pointer;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        line-height: 50px;
+                        text-align: center;
+                        justify-content: center;
+                        border: 0px black solid;
+                        background-color: white;
+                        font-size: 24px;
+                        margin: 20px;
+                        box-shadow: 0px 8px 10px rgb(46, 46, 40);
+                        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+                }
+
+                span#left:hover, span#right:hover {
+                        cursor: pointer;
+                        background-color: grey;
+                        color: white;
+                        transform: scale(1.1);
+                }
+
+                img {
+                        width: 150px;
+                        height: 150px; 
+                        border-radius: 50%;
+                }
+
+                p {
+                        font-weight: bold;
+                        text-align: center;
+                }
+
+                .pokemon1, .pokemon2, .pokemon3 {
+                        color: rgb(93, 92, 92);
+                        flex: 1;
+                        height: 60vh;
+                        background-color: rgba(255, 0, 0, 0.2);
+                        border-radius: 50px;
+                        padding: 20px;
+                        margin: 30px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        box-shadow: 0px 8px 10px rgb(46, 46, 40);
+                        transition: width 2s, height 2s;
+                }
+
+                .pokemon1:hover, .pokemon2:hover, .pokemon3:hover {
+                        transform: scale(1.01);
+                        box-shadow: 0px 12px 15px rgb(46, 46, 40);
+                        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                }
+
+                .pokemon1 p[id^="stats"],
+                .pokemon2 p[id^="stats"],
+                .pokemon3 p[id^="stats"] {
+                        text-align: left;
+                        text-transform: capitalize;
+                }
+
+		.fade-in {
+    			animation: popOut 1s ease-out forwards;
+		}
+
+		@keyframes popOut {
+			0% {
+				opacity: 0;
+				transform: scale(0.8);
+			}
+			100% {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+		img, p {
+			opacity: 1;
+			transform: scale(1);
+			transition: opacity 1s ease-out, transform 1s ease-out;
+		}
+
+		.fade-in img, .fade-in p {
+			opacity: 1;
+			transform: scale(0.8);
+		}
+
+        </style>
+</head>
+<body> 
+        <audio autoplay loop>
+                <source src="backsound.mp3" type="audio/ogg">
+                Your browser does not support the audio element.
+        </audio>
+        <div class="container">
+                <span id="left"><-</span>
+                <div class="content">
+                        <div class="pokemon1">
+                                <h1 id="name1"></h1>
+                                <img id="image1" src="" alt="">
+                                <p id="description1"></p>
+                                <br>
+                                <p id="stats1"></p>
+                        </div>
+                        <div class="pokemon2">
+                                <h1 id="name2"></h1>
+                                <img id="image2" src="" alt="">
+                                <p id="description2"></p>
+                                <br>
+                                <p id="stats2"></p>
+                        </div>
+                        <div class="pokemon3">
+                                <h1 id="name3"></h1>
+                                <img id="image3" src="" alt="">
+                                <p id="description3"></p>
+                                <br>
+                                <p id="stats3"></p>
+                        </div>
+                </div>
+                <span id="right">-></span>
+        </div>
+        
+        <script>
+                let idCounter = 1;
+
+                function changeData(name1, imageSrc1, name2, imageSrc2, name3, imageSrc3, idx) {
+                        name1 = name1[0].toUpperCase() + name1.substring(1);
+                        document.getElementById("name1").innerHTML = name1;
+                        document.getElementById("image1").src = imageSrc1;
+                        document.getElementById("description1").innerHTML = '#' + idx;
+                        
+                        name2 = name2[0].toUpperCase() + name2.substring(1);
+                        document.getElementById("name2").innerHTML = name2;
+                        document.getElementById("image2").src = imageSrc2;
+                        document.getElementById("description2").innerHTML = '#' + (idx + 1);
+                        
+                        name3 = name3[0].toUpperCase() + name3.substring(1);
+                        document.getElementById("name3").innerHTML = name3;
+                        document.getElementById("image3").src = imageSrc3;
+                        document.getElementById("description3").innerHTML = '#' + (idx + 2);
+                }
+
+                async function UpdateCard(id) {
+			try {
+				const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+				const pokemon = await data.json();
+
+				const data2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id + 1}`);
+				const pokemon2 = await data2.json();
+
+				const data3 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id + 2}`);
+				const pokemon3 = await data3.json();
+
+				changeData(pokemon.name, pokemon.sprites.front_default, pokemon2.name, pokemon2.sprites.front_default, pokemon3.name, pokemon3.sprites.front_default, id);
+
+				displayStats(pokemon, pokemon2, pokemon3);
+
+				const content = document.querySelector('.content');
+				content.classList.add('fade-in');
+
+				setTimeout(() => {
+				content.classList.remove('fade-in');
+				}, 1000);
+			}
+			catch(error) {
+				console.log(error);
+			}
+		}
+
+                async function displayStats(pokemon, pokemon2, pokemon3) {
+                        const stats1 = getStats(pokemon);
+                        const stats2 = getStats(pokemon2);
+                        const stats3 = getStats(pokemon3);
+                        const total1 = getBaseStatTotal(pokemon);
+                        const total2 = getBaseStatTotal(pokemon2);
+                        const total3 = getBaseStatTotal(pokemon3);
+
+                        document.getElementById("stats1").innerHTML = stats1 + `<br>Base Stat Total: ${total1}`;
+                        document.getElementById("stats2").innerHTML = stats2 + `<br>Base Stat Total: ${total2}`;
+                        document.getElementById("stats3").innerHTML = stats3 + `<br>Base Stat Total: ${total3}`;
+                }
+
+                function getStats(pokemon) {
+                        const stats = pokemon.stats.map(stat => `${stat.stat.name} : ${stat.base_stat}`);
+                        return stats.join('<br>');
+                }
+
+                function getBaseStatTotal(pokemon) {
+                        return pokemon.stats.reduce((total, stat) => total + stat.base_stat, 0);
+                }
+
+                document.getElementById("right").addEventListener('click', () => {
+			idCounter += 3;
+			if (idCounter > 1023) {
+				idCounter = 1;
+			}
+			const content = document.querySelector('.content');
+			content.classList.remove('fade-in');
+			UpdateCard(idCounter);
+			content.classList.add('fade-in');
+		});
+
+		document.getElementById("left").addEventListener('click', () => {
+			idCounter -= 3;
+			if (idCounter < 1) {
+				idCounter = 1023;
+			}
+			const content = document.querySelector('.content');
+			content.classList.remove('fade-in');
+			UpdateCard(idCounter);
+			content.classList.add('fade-in');
+		});
+
+
+                document.addEventListener("DOMContentLoaded", () => {
+                        UpdateCard(idCounter);
+                });
+
+        </script>
+</body>
+</html>
