@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <title>Meong</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon_io/image.ico">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://kit.fontawesome.com/cbc1fb4e16.js" crossorigin="anonymous"></script>
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/music-note.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+        <style>
+                body {
+                        font-family: "Bebas Neue", sans-serif;
+                        background-color: #204287;
+                        color: white;
+                        min-height: 100vh;
+                        min-width: 98vh;
+                }
+
+                .bgimage {
+                        height: 100vh;
+                        background: url('images/heroImage.png');
+                        background-size: cover;
+                        position: relative;
+                }
+
+                .hero_title {
+                        font-size: 4.5rem;
+                }
+
+                .hero-text {
+                        text-align: center;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: white;
+                }
+
+                .navbar {
+                        font-size: 20px;
+                        backdrop-filter: blur(1px) brightness(1);
+                        -webkit-backdrop-filter: blur(8px) brightness(1.2);
+                        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+                        color: white;
+                }
+
+                .navbar-nav .nav-link, .navbar-brand {
+                        color: white;
+                }
+
+                .gradient-banner {
+                        position: absolute;
+                        z-index: 10;
+                        left: 0;
+                        bottom: 0;
+                        height: 15rem;
+                        width: 100%;
+                        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #204287);
+                }
+
+                .animate__animated.animate__fadeIn {
+                        --animate-duration: 2s;
+                }
+
+                a:hover, a:active {
+                        background-color: palegoldenrod;
+                }
+        </style>
+</head>
+
+<body>
+        <section class="bgimage animate__animated animate__fadeIn" id="home" style="max-height: 95vh;">
+                <div class="container-fluid">
+                        <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
+                                        <h2 class="hero_title" style="font-size: 10rem;" id = "text">Meong</h2>
+                                </div>
+                        </div>
+                </div>
+
+                <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+                        <div class="container-fluid">
+                                <div class="d-flex justify-content-between w-200">
+                                        <a class="navbar-brand" href="#">
+                                                Meong Company
+                                        </a>
+                                </div>
+
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                                <li class="nav-item">
+                                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="#">Kucing</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="#">Activities</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="#">Foods</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="#">Owner</a>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </div>
+                </nav>
+                <section class="gradient-banner">
+
+                </section>
+        </section>
+        <footer style="justify-content: center; align-items: center; margin: auto; display: flex; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; min-height: 5vh; flex-direction: column;">
+                
+                <span>Copyright &#169; 2024 Meong Company, all rights reserved.</span>
+        </footer>
+        <script src="script/script.js" type="text/javascript"></script>
+</body>
+</html>
