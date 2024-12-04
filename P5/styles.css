@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Global Styles */
+
+:root {
+	--blue: #231650;
+	--pale: #FED172;
+	--orange: #F3742B;
+	--clay: #B83A14;
+	--brown: #612E37;
+}
+
+body {
+	background-color: var(--blue);
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	color: var(--pale);
+}
+
+header {
+	text-align: center;
+	margin-top: 50px;
+}
+
+/* Navbar Styles */
+.navbar {
+	display: flex;
+	justify-content: center;
+	background-color: var(--blue);
+	padding: 10px 0;
+}
+
+.nav-link {
+	margin: 0 15px;
+	color: var(--pale);
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.nav-link:hover {
+	text-decoration: underline;
+}
+
+.main-page {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Center the modal content */
+	text-align: center;
+
+}
+
+.hidden {
+  	display: none;
+}
+
+
+.activity-page {
+	width: 60%; /* Or any width that fits your design */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Centers the div both vertically and horizontally */
+	text-align: center; /* Center the text inside each box */
+}
+
+.box{
+	display: inline-block; /* Makes the boxes line up horizontally */
+  	padding: 10px;
+	width: 100px;
+	height: 100px;
+	margin: 0 15px;
+}
+
+h2{
+	text-align: center;
+	padding-top: 2px;
+}
+
+.box p{
+	font-size: 50px;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 800;
+	margin-bottom: 15px;
+}
+
+#open-modal{
+	/* circular button with shadow border */
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	background-color: white;	
+	color: black;
+	text-align: center;
+	border: 1px solid #ccc;	
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+	cursor: pointer;
+}
+
+.star-container{
+	/*  */
+	background-color: var(--clay);
+	width: 5rem;
+	padding: 10px;
+	font-size: large;
+	text-align: center;
+	/* border with shadow */
+	border: 1px solid #ccc;
+	border-radius: 15px; /* Rounded corners */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow */
+	/* center the star-container */
+
+}
+
+/* Modal Styles */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	z-index: 1000;
+}
+
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Center the modal content */
+	background-color: var(--brown)	;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	width: 90%;
+	max-width: 400px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	height: 300px;
+}
+
+.modal-buttons button {
+	margin: 10px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#activity-form{
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.modal-buttons{
+	margin-top: 20px;
+}
+
+button {
+	background-color: var(--orange);
+	color: white;
+}

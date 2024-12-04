@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ZenClock</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+	<nav class="navbar">
+		<a href="index.html" class="nav-link">Home</a>
+		<a href="about.html" class="nav-link">About</a>
+		<a href="zenclock.html" class="nav-link">ZenClock</a>
+	</nav>
+	<!-- Main Page -->
+	<div class="main-page">
+		<h1>ZenClock</h1>
+		<button id="open-modal" style="background-color: var(--brown); color: var(--orange);"><i class="bx bx-plus bx-tada" style="font-size: 200px;"></i></button>
+		<br>
+	</div>
+	<div class="star-container">⭐<span id="stars-count">0</span></div>
+
+	<!-- Activity Page -->
+	<div class="activity-page hidden">
+		<h1 id="activity-header"></h1>
+		<div style="width: 130px;" class="box">
+			<h2 id="days-text">Days</h2>
+			<p id="days">000</p>
+		</div>
+		<div class="box">
+			<h2 id="hours-text">Hours</h2>
+			<p id="hours">00</p>
+		</div>
+		<div class="box">
+			<h2 id="minutes-text">Minutes</h2>
+			<p id="minutes">00</p>
+		</div>
+		<div class="box">
+			<h2 id="seconds-text">Seconds</h2>
+			<p id="seconds">00</p>
+		</div>
+	</div>
+
+	<!-- Input Modal -->
+	<div id="modal" class="modal hidden">
+		<div class="modal-content">
+			<h2>Set Up Your Activity</h2>
+			<form id="activity-form">
+				<label for="activity">Activity:</label>
+				<input type="text" id="activity" required>
+				<br>
+				<label for="duration">Duration (minutes):</label>
+				<input type="range" min="1" max="60" value="1" id="duration">
+				<span id="duration-value">1</span> minutes
+
+				<div class="modal-buttons">
+					<button type="submit">Start</button>
+					<button type="button" id="close-modal">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Completion Modal -->
+	<div id="completion-modal" class="modal hidden">
+		<div class="modal-content">
+			<h2>Did You Complete the Activity?</h2>
+			<div class="modal-buttons">
+				<button id="complete-yes">Yes</button>
+				<button id="complete-no">No</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
